@@ -1,0 +1,122 @@
+@import url(shumi/stylesheet.css);
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css?family=Inconsolata:700');
+
+*, *:before, *:after {
+	-webkit-box-sizing: border-box; 
+	-moz-box-sizing: border-box; 
+	box-sizing: border-box;
+}
+
+body
+{
+	margin: 0;
+	padding: 70px 0;
+	font-family: sans-serif;
+	font-family: Raleway, sans-serif;
+	background: url(../img/grain.png);
+}
+main
+{
+	margin: 0 auto;
+	padding: 20px 30px;
+	max-width: 80%;
+	background: white;
+}
+section
+{
+	width: 470px;
+	margin: 40px auto;
+}
+code, textarea, pre { font-family: 'Inconsolata', monospace; font-weight: bold; }
+pre { background: #e1ffff; margin: 0; margin-bottom: 10px; margin-top: 4px; padding: 7px 10px; }
+b { color: #31d2ff; }
+img { max-width: 100%; }
+h1
+{
+	margin: 0;
+	padding: 50px 0 16px 0;
+	height: 150px;
+	font-family: shumiregular;
+	font-size: 58px;
+	font-weight: normal;
+	text-align: center;
+	color: #737c84;
+}
+h3 { margin: 4px 0; color: #31d2ff; font-size: 20px; border-top: solid 1px; padding-top: 20px; }
+h4 { color: #737C84; margin: 0; margin-bottom: 4px; }
+
+menu header
+{
+	font-weight: bold;
+	font-size: 18px;
+}
+menu a
+{
+	display: block;
+	text-decoration: none;
+	color: black;
+}
+
+#menu1
+{
+	width: 200px;
+	padding: 20px;
+}
+#menu2
+{
+	width: 200px;
+	padding: 20px;
+}
+textarea#txt
+{
+	display: block;
+	padding: 10px;
+	margin: 0;
+	border: none;
+	background: none;
+}
+#fill-pattern
+{
+	width: 450px;
+	height: 270px;
+	background: red;
+}
+
+icon
+{
+	padding: 3px 7px;
+	display: inline-block;
+}
+
+footer
+{
+	padding-top: 20px;
+	border-top: solid 1px silver;
+	text-align: center;
+}
+
+#img
+{
+	background: url(../img/sk8.jpg);
+	width: 620px;
+	height: 446px;
+}
+#card
+{
+	background: #EFF9FF;
+}
+
+#card h5
+{
+	margin: 0;
+	padding: 15px;
+	padding-top: 17px;
+	background: #97EFEF;
+	font-size: 16px;
+}
+#card p
+{
+	margin: 0;
+	padding: 15px;
+}

@@ -1,0 +1,239 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Chamfer.js</title>
+	<style>
+		@import url(css/style.css);
+	</style>
+</head>
+
+<body>
+	<main>
+		<section>
+			<h1>Chamfer.js</h1>
+			<h2>Add chamfered corners to any HTML element with 2 available methods</h2>
+			<p>Download at <a href="https://github.com/ramon-mendes/Chamfer.js">GitHub</a>.</p>
+			<p>For simple scenarios, given any element, <b>method 1</b> will set its <code>background-image</code> with an image that has chamfered borders and optionally a solid fill.</p>
+			<p>For advanced scenarios where you have content over the corners (to chamfer an img for example), use <b>method 2</b>, which creates <code>overlay triangular div elements</code> for each chamfered corner.</p>
+		</section>
+
+		<section>
+			<h3>Samples method 1 - <code>ChamferBg()</code></h3>
+			<h4>Icons box:</h4>
+			<div>
+				<icon><img src="img/icon-chat.png" alt=""></icon>
+				<icon><img src="img/icon-mail.png" alt=""></icon>
+				<icon><img src="img/icon-write.png" alt=""></icon>
+			</div>
+		</section>
+
+		<section>
+			<h4>4 edges chamfer:</h4>
+			<menu id="menu1">
+				<header>Menu</header>
+				<a href="">Item 1</a>
+				<a href="">Item 1</a>
+				<a href="">Item 1</a>
+				<a href="">Item 1</a>
+				<a href="">Item 1</a>
+				<a href="">Item 1</a>
+			</menu>
+		</section>
+
+		<section>
+			<h4>2 edges chamfer:</h4>
+			<menu id="menu2">
+				<header>Menu</header>
+				<a href="">Item 1</a>
+				<a href="">Item 1</a>
+				<a href="">Item 1</a>
+				<a href="">Item 1</a>
+				<a href="">Item 1</a>
+				<a href="">Item 1</a>
+			</menu>
+		</section>
+
+		<section>
+			<h4>Textarea 2 edges + resizing grip:</h4>
+			<textarea id="txt" cols="40" rows="7" placeholder="Type something here.."></textarea>
+		</section>
+
+		<section>
+			<h4>Fill pattern:</h4>
+			<div id="fill-pattern"></div>
+		</section>
+
+
+		<section>
+			<h3>Samples method 2 - <code>ChamferEnvelop()</code></h3>
+			<h4>Image chamfer:</h4>
+			<img src="img/sk8.jpg" id="img1" />
+		</section>
+
+		<section>
+			<h4>Huge image (>1MB - size might be unknown at page load):</h4>
+			<img src="img/gg.png" id="img2" />
+		</section>
+
+		<section>
+			<h4>Card+text chamfer:</h4>
+			<div id="card">
+				<h5>Card title</h5>
+				<p>If you need a solid background here, you MUST set it in CSS for this element; do NOT set if via Chamfer.js else it will cover the text.</p>
+			</div>
+		</section>
+	
+
+		<!--<section>
+			<h4>Hexagons:</h4>
+			<div id="hex1"></div>
+			<div id="hex2"></div>
+		</section>-->
+
+
+		<section>
+			<h3>Usage:</h3>
+			<script src="dist/chamfer.js"></script>
+
+			
+			Include chamfer.js:
+			<pre>&lt;script src="dist/chamfer.js"&gt;&lt;/script&gt;</pre>
+			Include ResizeObserver.js polyfill if you use 'resize_observe' functionality (see options):
+			<pre>&lt;script src="dist/ResizeObserver.js"&gt;&lt;/script&gt;</pre>
+			<br />
+			Call <code>ChamferBg/ChamferEnvelop(el:Element, [options:Object])</code> for each element to chamfer:
+			<pre>var el = document.getElementById('box');
+ChamferBg(el, {
+	size: 20,
+	sw: 6,
+	sc: '#447aec',
+	fc: '#21ceff',
+	tl: false,
+	br: false,
+	resize_observe: true
+});</pre>
+
+			<br />
+			The following options and their default values are available:
+			<pre>
+{
+	size: 5,	// chamfer size
+	sw: 1,		// stroke width
+	sc: 'black',	// stroke color,
+	fc: undefined,	// fill color
+	cc: 'white'	// corner color (for ChamferEnvelop)
+
+	tl: true,	// chamfer top-left corner?
+	tr: true,	// chamfer top-right corner?
+	bl: true,	// chamfer bottom-left corner?
+	br: true,	// chamfer bottom-right corner?
+
+	resize_observe: false
+	// turn on resize_observe observer?
+	// this will observe whenever the element
+	// resizes and will refresh the background
+}
+</pre>
+		</section>
+
+		<section>
+			<p>Download at <a href="https://github.com/ramon-mendes/Chamfer.js">GitHub</a>.</p>
+
+			<p>Code licensed MIT. © 2017 Ramon F. Mendes</p>
+		</section>
+
+		<footer>
+			<a href="http://misoftware.com.br/"><img src="img/logo_mi.png" /></a>
+		</footer>
+	</main>
+
+
+	<script src="dist/ResizeObserver.js"></script>
+	<script src="dist/chamfer.js"></script>
+
+	<script>
+		var el;
+
+		el = document.querySelector('main');
+		ChamferBg(el, {
+			size: 6,
+			sw: 5,
+			sc: '#2d4a8c',
+			fc: 'white'
+		});
+
+		el = document.querySelector('h1');
+		ChamferBg(el, {
+			size: 15,
+			sw: 6,
+			sc: '#b7d6d6',
+			fc: '#d5f9f9'
+		});
+
+		el = document.querySelector('#img1');
+		ChamferEnvelop(el, {
+			sc: '#3effff',
+			sw: 4,
+			size: 30,
+		});
+
+		el = document.querySelector('#img2');
+		ChamferEnvelop(el, {
+			sc: '#EF0001',
+			sw: 4,
+		});
+
+		el = document.querySelector('#card');
+		ChamferEnvelop(el, {
+			sw: 3,
+			sc: '#5A8AAE'
+		});
+		
+		var icons = document.querySelectorAll("icon");
+		for(var i = 0; i < icons.length; i++) {
+			ChamferBg(icons[i], {
+				size: 4,
+				sw: 0,
+				fc: '#3effff',
+			});
+		}
+
+		el = document.getElementById('menu1');
+		ChamferBg(el, {
+			size: 15,
+			sw: 4,
+			sc: '#9dffff',
+			fc: '#3effff'
+		});
+
+		el = document.getElementById('menu2');
+		ChamferBg(el, {
+			size: 20,
+			sw: 6,
+			sc: '#447aec',
+			fc: '#21ceff',
+			tr: false,
+			bl: false
+		});
+
+		el = document.getElementById('txt');
+		ChamferBg(el, {
+			size: 20,
+			sw: 6,
+			sc: '#447aec',
+			fc: '#21ceff',
+			tl: false,
+			br: false,
+			resize_observe: true
+		});
+
+		el = document.getElementById('fill-pattern');
+		ChamferBg(el, {
+			sw: 6,
+			sc: '#F9C62D',
+			fp: 'img/vineyabc2.jpg'
+		});
+	</script>
+</body>
+</html>
