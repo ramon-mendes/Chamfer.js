@@ -65,7 +65,7 @@ You will need to set `resize_observe` to true and include `ResizeObserver.js` if
 
 # Real-life usage samples
 
-- http://atcommander.io/
+- https://atcommandercore.azurewebsites.net
 - Your site here! If you are using Chamfer.js in your site, I would be glad to put it in this list. To do it just create an new issue with the URL.
 
 # TODO
