@@ -2,7 +2,7 @@
 
 Make any HTML element to have **chamfered borders/stroke** and, optionally, a solid fill.
 
-[DEMO](http://chamferjs.azurewebsites.net/)
+[DEMO](https://chamferjsmvc.azurewebsites.net/)
 
 ---
 
